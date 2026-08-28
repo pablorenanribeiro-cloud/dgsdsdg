@@ -1,0 +1,164 @@
+/* Variáveis para padronização de cores */
+:root {
+    --cor-primaria: #0056b3;
+    --cor-secundaria: #f4f4f9;
+    --cor-texto: #333;
+    --cor-sucesso: #28a745;
+    --cor-alerta: #ffc107;
+    --cor-erro: #dc3545;
+    --cor-branco: #ffffff;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Navegação (Flexbox) */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 1rem 2rem;
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra);
+    justify-content: center;
+}
+
+/* Botões */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: #003d82;
+    transform: translateY(-2px);
+}
+
+.btn-danger { background-color: var(--cor-erro); }
+.btn-danger:hover { background-color: #a71d2a; }
+.btn-secondary { background-color: #6c757d; }
+.btn-secondary:hover { background-color: #5a6268; }
+
+/* Estrutura Principal (CSS Grid) */
+.container-principal {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cards de Resumo */
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: var(--cor-branco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    text-align: center;
+    border-top: 4px solid var(--cor-primaria);
+}
+
+.card h3 { font-size: 1rem; color: #666; }
+.card p { font-size: 1.5rem; font-weight: bold; margin-top: 10px; }
+.status-aprovado { border-top-color: var(--cor-sucesso); }
+.status-aprovado p { color: var(--cor-sucesso); }
+
+/* Seções Gerais */
+section, aside {
+    background: var(--cor-branco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+}
+
+h2 { margin-bottom: 15px; color: var(--cor-primaria); border-bottom: 2px solid #eee; padding-bottom: 5px; }
+
+/* Informações do Aluno */
+.info-aluno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* Formulário */
+.form-group { margin-bottom: 15px; }
+label { display: block; font-weight: bold; margin-bottom: 5px; }
+input { 
+    width: 100%; padding: 10px; 
+    border: 1px solid #ccc; border-radius: 5px; 
+}
+.notas-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.resultado-oculto { display: none; margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; }
+
+/* Tabela */
+.tabela-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+th { background-color: var(--cor-primaria); color: var(--cor-branco); }
+tr:hover { background-color: #f1f1f1; }
+.aprovado { color: var(--cor-sucesso); font-weight: bold; }
+.recuperacao { color: var(--cor-alerta); font-weight: bold; text-shadow: 1px 1px 1px #000; }
+.reprovado { color: var(--cor-erro); font-weight: bold; }
+
+/* Avisos */
+.aviso { background: #fff3cd; padding: 15px; border-left: 5px solid var(--cor-alerta); margin-bottom: 15px; border-radius: 4px; }
+.aviso h4 { margin-bottom: 5px; color: #856404; }
+
+/* Footer */
+footer { text-align: center; padding: 20px; background-color: var(--cor-primaria); color: var(--cor-branco); margin-top: 20px; }
+
+/* 📱 Responsividade */
+@media (max-width: 992px) {
+    .container-principal { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    nav { flex-direction: column; }
+    .btn { width: 100%; }
+}
